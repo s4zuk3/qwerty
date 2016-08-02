@@ -1,0 +1,208 @@
+
+<!-- saved from url=(0050)https://movistar-festigame.herokuapp.com/game.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang=""><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]--><!--[if gt IE 8]><!--><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <meta property="og:title" content="¡Estoy jugando por entradas a FestiGame!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://movistar-festigame.herokuapp.com/img/fb2.jpg">
+    <meta property="og:url" content="https://movistar-festigame.herokuapp.com/">
+    <meta property="og:description" content="Adivina la mayor cantidad de juegos y participa por entradas dobles para FestiGame.">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="./game_files/normalize.min.css">
+    <script src="./game_files/modernizr-2.8.3.min.js"></script>
+
+    <link rel="stylesheet" href="./game_files/style.css">
+
+	</head>
+
+	<body>
+		<!-- CONTAINER -->
+		<div class="container">
+
+			<header class="header">
+				<a href="https://movistar-festigame.herokuapp.com/" class="site-logo">
+					<img src="./game_files/movistar-gamers-logo.png" alt="#Movistar Gamers">
+				</a>
+				<div class="countdown-container">
+					<div class="countdown-logo">
+						<img src="./game_files/festigame-logo.png" alt="festigame">
+					</div>
+					<div class="countdown">
+						<div class="count days">
+              <span class="num" id="countdown-days">2</span><span class="txt">dias</span>
+            </div>
+            <span class="sep">:</span>
+			      <div class="count hours">
+              <span class="num" id="countdown-hours">0</span><span class="txt">horas</span>
+            </div>
+            <span class="sep">:</span>
+      			<div class="count minutes">
+      			  <span class="num" id="countdown-min">25</span><span class="txt">minutos</span>
+      			</div>
+		      </div>
+	      </div>
+
+        <div class="game-stats">
+          <div class="game-score game-box">
+
+
+              <a href="https://movistar-festigame.herokuapp.com/game.html#" onclick="switchMute()"><img src="./game_files/mute.png" id="audioswitch"></a>
+
+          </div>
+          <div class="game-score game-box">
+            <div class="score-title">
+              <h3>SCR</h3>
+            </div>
+            <span class="score-results">
+              <span id="score"></span>
+            </span>
+          </div>
+          <div class="game-timer game-box">
+            <div class="score-title">
+              <h3>SEG</h3>
+            </div>
+            <span class="score-results">
+              <span id="countdown"></span>
+            </span>
+          </div>
+        </div>
+			</header>
+
+			<!-- FORM INICIO -->
+			<div id="inicio" class="game-container alt">
+				<div class="text-center form-container">
+          <h1 class="title-main">Ingresa tus Datos y Participa</h1>
+  				<form class="form" action="javascript:submitform()">
+            <div class="form-group">
+              <label for="name">Nombre:</label>
+              <input type="text" name="name" id="input-name" placeholder="Felipe González" onfocusout="validateName(false)">
+            </div>
+            <div class="form-group">
+              <label for="rut">RUT:</label>
+              <input type="text" name="rut" id="input-rut" placeholder="17.XXX.XXX-X" onfocusout="validateRut(false)">
+            </div>
+            <div class="form-group">
+              <label for="phone">TELEFONO:</label>
+              <input type="phone" name="phone" id="input-phone" placeholder="9 XXXX XXXX" onfocusout="validatePhone(false)">
+            </div>
+            <div class="form-group">
+              <label for="email">E-MAIL:</label>
+              <input type="email" name="email" id="input-email" placeholder="mail@mail.com" onfocusout="validateEmail(false)">
+            </div>
+            <div class="form-group">
+              <label for="address">DIRECCION:</label>
+              <input type="text" name="address" id="input-address" placeholder="Av. Holanda 100, Providencia" onfocusout="validateAddress(false)">
+            </div>
+            <div class="form-action">
+              <button type="submit" class="btn btn-enter">ENVIAR</button>
+            </div>
+  				</form>
+				</div>
+			</div>
+			<!-- END FORM INICIO -->
+
+			<!-- JUEGO -->
+			<div id="festigame" class="game-container hidden">
+
+				<div id="answer-container"><img src="./game_files/100.jpg" class="question-image" id="question-image-99"><img src="./game_files/99.jpg" class="question-image" id="question-image-98"><img src="./game_files/98.jpg" class="question-image" id="question-image-97"><img src="./game_files/97.jpg" class="question-image" id="question-image-96"><img src="./game_files/96.jpg" class="question-image" id="question-image-95"><img src="./game_files/95.jpg" class="question-image" id="question-image-94"><img src="./game_files/94.jpg" class="question-image" id="question-image-93"><img src="./game_files/93.jpg" class="question-image" id="question-image-92"><img src="./game_files/92.jpg" class="question-image" id="question-image-91"><img src="./game_files/91.jpg" class="question-image" id="question-image-90"><img src="./game_files/90.jpg" class="question-image" id="question-image-89"><img src="./game_files/89.jpg" class="question-image" id="question-image-88"><img src="./game_files/88.jpg" class="question-image" id="question-image-87"><img src="./game_files/87.jpg" class="question-image" id="question-image-86"><img src="./game_files/86.jpg" class="question-image" id="question-image-85"><img src="./game_files/85.jpg" class="question-image" id="question-image-84"><img src="./game_files/84.jpg" class="question-image" id="question-image-83"><img src="./game_files/83.jpg" class="question-image" id="question-image-82"><img src="./game_files/82.jpg" class="question-image" id="question-image-81"><img src="./game_files/81.jpg" class="question-image" id="question-image-80"><img src="./game_files/80.jpg" class="question-image" id="question-image-79"><img src="./game_files/79.jpg" class="question-image" id="question-image-78"><img src="./game_files/78.jpg" class="question-image" id="question-image-77"><img src="./game_files/77.jpg" class="question-image" id="question-image-76"><img src="./game_files/76.jpg" class="question-image" id="question-image-75"><img src="./game_files/75.jpg" class="question-image" id="question-image-74"><img src="./game_files/74.jpg" class="question-image" id="question-image-73"><img src="./game_files/73.jpg" class="question-image" id="question-image-72"><img src="./game_files/72.jpg" class="question-image" id="question-image-71"><img src="./game_files/71.jpg" class="question-image" id="question-image-70"><img src="./game_files/70.jpg" class="question-image" id="question-image-69"><img src="./game_files/69.jpg" class="question-image" id="question-image-68"><img src="./game_files/68.jpg" class="question-image" id="question-image-67"><img src="./game_files/67.jpg" class="question-image" id="question-image-66"><img src="./game_files/66.jpg" class="question-image" id="question-image-65"><img src="./game_files/65.jpg" class="question-image" id="question-image-64"><img src="./game_files/64.jpg" class="question-image" id="question-image-63"><img src="./game_files/63.jpg" class="question-image" id="question-image-62"><img src="./game_files/62.jpg" class="question-image" id="question-image-61"><img src="./game_files/61.jpg" class="question-image" id="question-image-60"><img src="./game_files/60.jpg" class="question-image" id="question-image-59"><img src="./game_files/59.jpg" class="question-image" id="question-image-58"><img src="./game_files/58.jpg" class="question-image" id="question-image-57"><img src="./game_files/57.jpg" class="question-image" id="question-image-56"><img src="./game_files/56.jpg" class="question-image" id="question-image-55"><img src="./game_files/55.jpg" class="question-image" id="question-image-54"><img src="./game_files/54.jpg" class="question-image" id="question-image-53"><img src="./game_files/53.jpg" class="question-image" id="question-image-52"><img src="./game_files/52.jpg" class="question-image" id="question-image-51"><img src="./game_files/51.jpg" class="question-image" id="question-image-50"><img src="./game_files/50.jpg" class="question-image" id="question-image-49"><img src="./game_files/49.jpg" class="question-image" id="question-image-48"><img src="./game_files/48.jpg" class="question-image" id="question-image-47"><img src="./game_files/47.jpg" class="question-image" id="question-image-46"><img src="./game_files/46.jpg" class="question-image" id="question-image-45"><img src="./game_files/45.jpg" class="question-image" id="question-image-44"><img src="./game_files/44.jpg" class="question-image" id="question-image-43"><img src="./game_files/43.jpg" class="question-image" id="question-image-42"><img src="./game_files/42.jpg" class="question-image" id="question-image-41"><img src="./game_files/41.jpg" class="question-image" id="question-image-40"><img src="./game_files/40.jpg" class="question-image" id="question-image-39"><img src="./game_files/39.jpg" class="question-image" id="question-image-38"><img src="./game_files/38.jpg" class="question-image" id="question-image-37"><img src="./game_files/37.jpg" class="question-image" id="question-image-36"><img src="./game_files/36.jpg" class="question-image" id="question-image-35"><img src="./game_files/35.jpg" class="question-image" id="question-image-34"><img src="./game_files/34.jpg" class="question-image" id="question-image-33"><img src="./game_files/33.jpg" class="question-image" id="question-image-32"><img src="./game_files/32.jpg" class="question-image" id="question-image-31"><img src="./game_files/31.jpg" class="question-image" id="question-image-30"><img src="./game_files/30.jpg" class="question-image" id="question-image-29"><img src="./game_files/29.jpg" class="question-image" id="question-image-28"><img src="./game_files/28.jpg" class="question-image" id="question-image-27"><img src="./game_files/27.jpg" class="question-image" id="question-image-26"><img src="./game_files/26.jpg" class="question-image" id="question-image-25"><img src="./game_files/25.jpg" class="question-image" id="question-image-24"><img src="./game_files/24.jpg" class="question-image" id="question-image-23"><img src="./game_files/23.jpg" class="question-image" id="question-image-22"><img src="./game_files/22.jpg" class="question-image" id="question-image-21"><img src="./game_files/21.jpg" class="question-image" id="question-image-20"><img src="./game_files/20.jpg" class="question-image" id="question-image-19"><img src="./game_files/19.jpg" class="question-image" id="question-image-18"><img src="./game_files/18.jpg" class="question-image" id="question-image-17"><img src="./game_files/17.jpg" class="question-image" id="question-image-16"><img src="./game_files/16.jpg" class="question-image" id="question-image-15"><img src="./game_files/15.jpg" class="question-image" id="question-image-14"><img src="./game_files/14.jpg" class="question-image" id="question-image-13"><img src="./game_files/13.jpg" class="question-image" id="question-image-12"><img src="./game_files/12.jpg" class="question-image" id="question-image-11"><img src="./game_files/11.jpg" class="question-image" id="question-image-10"><img src="./game_files/10.jpg" class="question-image" id="question-image-9"><img src="./game_files/9.jpg" class="question-image" id="question-image-8"><img src="./game_files/8.jpg" class="question-image" id="question-image-7"><img src="./game_files/7.jpg" class="question-image" id="question-image-6"><img src="./game_files/6.jpg" class="question-image" id="question-image-5"><img src="./game_files/5.jpg" class="question-image" id="question-image-4"><img src="./game_files/4.jpg" class="question-image" id="question-image-3"><img src="./game_files/3.jpg" class="question-image" id="question-image-2"><img src="./game_files/2.jpg" class="question-image" id="question-image-1"><img src="./game_files/1.jpg" class="question-image" id="question-image-0"></div>
+
+					<!-- START IMAGE -->
+					<div class="game-container-inner hide-at-end text-center">
+            <div id="question-image-home" class="instructions show">
+              <h2 class="title-simple">Instrucciones</h2>
+              <h4>En <strong>6O segundos</strong>, adivina la mayor cantidad <strong>de videojuegos</strong> y gana entradas para <strong>FestiGame</strong>.</h4>
+            </div>
+            <div class="game-loading" id="loading" style="display: block;">Cargando...</div>
+            <div class="btn btn-play" id="play" style="display: none;">
+              <input type="text" class="" id="game-name-input" onfocus="onClickGameNameInput()" oninput="gameNameInput()" style="font-size: 16px">
+            </div>
+          </div>
+
+
+          <div class="game-countdown hide-at-end" id="precountdown"></div>
+
+
+
+
+					<div class="ui-element game-interaction">
+						<div class="game-name">
+						  <label id="game-name-label"></label>
+						</div>
+            <button class="btn btn-next" id="next" style="display: none;">SKIP</button>
+            <!-- FEEDBACK -->
+    				<div class="ui-element game-feedback">
+              <div id="fail" style="display: none;"><img src="./game_files/wrong.png"></div>
+      				<div id="success" style="display: none;"><img id="success" src="./game_files/success.png"></div>
+    				</div>
+    				<!-- END FEEDBACK -->
+					</div>
+
+          <!-- END IMAGE -->
+					<div id="question-image-end" class="game-container-inner alt text-center">
+            <div class="game-results">
+              <div class="game-box score-box">
+                <div class="score-title">
+                  <h3>SCORE</h3>
+                </div>
+                <span class="score-results" id="score-end"></span>
+              </div>
+              <h4>PARA CONCURSAR POR ENTRADAS AL FESTIGAME SUBE TU PUNTAJE.</h4>
+              <div class="share">
+                <a href="javascript:fbShare(&#39;http://mvst.cl/ConcursoFestigame&#39;)" class="btn btn-share">
+                  Facebook
+                </a>
+                <a href="javascript:twtShare(&#39;http://mvst.cl/ConcursoFestigame&#39;)" class="btn btn-share">
+                  Twitter
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+
+			</div>
+			<!-- END JUEGO -->
+
+      <footer class="footer">
+        <a href="http://hogar.movistar.cl/movil/club-movistar/panoramas-y-eventos/destacado/festigame-2016/cupon-1861" class="external-link descuento" title="15% descuento Club Movistar" target="_blank">
+          <img src="./game_files/link-descuento.png" alt="15% descuento Club Movistar">
+        </a>
+        <a href="http://movistarchile.tv/69735-festigame" class="external-link streaming" title="Streaming Festigame" target="_blank">
+          <img src="./game_files/link-streaming.png" alt="Streaming Festigame">
+        </a>
+      </footer>
+
+		</div>
+		<!-- END CONTAINER -->
+
+		<!-- SCRIPTS -->
+		<script src="./game_files/jquery-1.11.2.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+		<!-- PIXELATE -->
+		<script src="./game_files/close-pixelate.js"></script>
+		<script src="./game_files/countdown.js"></script>
+		<script src="./game_files/game.js"></script>
+		<script src="./game_files/form.js"></script>
+
+
+		<script src="./game_files/plugins.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+    </script> -->
+	
+
+</body></html>
